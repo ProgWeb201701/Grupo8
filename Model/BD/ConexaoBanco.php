@@ -4,12 +4,12 @@
  * Created by WhoAmI
  */
 
-class Conexao {
+class ConexaoBanco {
 
-    var $host = "servidor";
-    var $usuario = "usuario";
-    var $senha = "senha";
-    var $banco = "banco";
+    var $host = "localhost";
+    var $usuario = "root";
+    var $senha = "";
+    var $banco = "gerenciadortcc";
     private $mysqli;
 
     function requisicoesBanco($query) {
