@@ -10,6 +10,7 @@ and open the template in the editor.
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/css.css" rel="stylesheet">
         <title></title>
     </head>
     <body>
@@ -28,23 +29,15 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-
-
+            <legend>
+                <center>
+                    <img src="imagens/tcc.jpg" class="imagem">
+                </center>
+            </legend>
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <div class="panel panel-login">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <input type="submit"  id="login" tabindex="4" class="form-control btn-primary" value="Log In">
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <input type="submit" name="register" id="login-submit" tabindex="4" class="form-control btn-primary" value="Log In">
-                                    </div>
-                                </div>
-                                <hr>
-                            </div>
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -58,19 +51,23 @@ and open the template in the editor.
 
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-sm-6 col-sm-offset-3">
-                                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn-primary" value="Log In">
+                                                    <div class="col-sm-6">
+                                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn-primary" value="Entrar">
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <input type="button" name="registro" id="registro" tabindex="4" class="form-control btn-primary" value="Cadastrar-se">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>                
                                     </div>
+                                    </form>                
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
 
     </body>
