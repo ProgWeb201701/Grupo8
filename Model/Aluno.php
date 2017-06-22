@@ -13,9 +13,9 @@
 class Aluno {
     
     //Atributos Aluno
-    public $nome;
-    public $senha;
-    public $email;
+    private $nome;
+    private $senha;
+    private $email;
     
     
     //Construtor aluno
