@@ -1,24 +1,15 @@
-
-
-
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /*
  * Created by WhoAmI
  */
 
-class ConexaoBanco {
+class Conexao {
 
-    var $host = "localhost";
-    var $usuario = "root";
-    var $senha = "";
-    var $banco = "gerenciadortcc";
+    var $host = "servidor";
+    var $usuario = "usuario";
+    var $senha = "senha";
+    var $banco = "banco";
     private $mysqli;
 
     public function Abrir() {
@@ -30,4 +21,3 @@ class ConexaoBanco {
     }
 
 }
-?>

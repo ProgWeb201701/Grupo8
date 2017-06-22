@@ -18,11 +18,6 @@ and open the template in the editor.
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <button data-target="#navbar-main" data-toggle="collapse" type="button" class="navbar-toggle">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
                         <a href="#" class="navbar-brand" title="Página inicial">
                             Gerenciador de TCC
                         </a>
@@ -54,8 +49,8 @@ and open the template in the editor.
                                                     <div class="col-sm-6">
                                                         <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn-primary" value="Entrar">
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="button" name="registro" id="registro" tabindex="4" class="form-control btn-primary" value="Cadastrar-se">
+                                                    <div class="col-sm-6 center">
+                                                        <a type="button" href="View/cadastro.php" class="form-control btn-primary"> Cadastrar-se</a>
                                                     </div>
                                                 </div>
                                             </div>
