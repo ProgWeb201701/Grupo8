@@ -1,5 +1,5 @@
 <?php
-
+ include '../Model/BD/ConexaoBanco.php';
 ini_set('display_errors', 1);
 
 // $mysqli = new mysqli("localhost","bernardino","mysql", "catalog");
@@ -16,28 +16,39 @@ ini_set('display_errors', 1);
 
 $usuario = $_POST['usuario'];
 
-if ($usuario == 'Aluno') {
+if ($usuario == '1') {
     $query = "INSERT INTO aluno SET id=NULL, nome=?, senha=?, email=?";
+    $conexao = new ConexaoBanco();
+    $conexao->connect();
 
-    $stmt = $mysqli->stmt_init();
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
+    $email = $_POST['email'];
+    echo '<script>alert($nome, $senha, $email); </script>';
+//echo "$sku > $name  > $price";
 
-    $stmt->prepare($query);
+    $query = "INSERT INTO aluno (nome, senha, email) 
+    VALUES ($nome,$email,$senha);";
+
+    $conexao->executeQuery($query);
+    $conexao->disconnect();
+} else {
+    $query = "INSERT INTO professor SET id=NULL, nome=?, senha=?, email=?";
+
+    $conexao = new ConexaoBanco();
+    $conexao->connect();
 
     $stmt->bind_param('sss', $nome, $senha, $email);
 
-    $sku = $_POST['sku'];
-    $name = $_POST['name'];
-    $price = $_POST['price'];
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
+    $email = $_POST['email'];
 //echo "$sku > $name  > $price";
 
-    $stmt->execute();
-    $stmt->close();
-    $mysqli->close();
-    $query = "INSERT INTO aluno (nomeAlu, senhaAlu, emailAlu) 
-    VALUES ($nome,$email,$senha);";
-} else {
-    $query = "INSERT INTO professor (nomePro, senhaPro, emailPro)
-VALUES ($nome,$senha,$email)";
+    $query = "INSERT INTO professor (nome, senha, email)
+    VALUES ($nome,$senha,$email)";
+    $conexao->executeQuery($query);
+    $conexao->disconnect();
 }
 ?>
 

@@ -31,14 +31,14 @@ and open the template in the editor.
             </div>
 
 
-            <form class="form-horizontal" action="">
+            <form class="form-horizontal" action="../Controller/cadastrarUsuario.php">
                 <fieldset>
 
                     <!-- Select Basic -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="idAdmin">Usuário</label>
+                        <label class="col-md-4 control-label" for="usuario">Usuário</label>
                         <div class="col-md-5">
-                            <select id="idAdmin" name="idAdmin" class="form-control">
+                            <select id="idAdmin" name="usuario" class="form-control">
                                 <option value="1">Aluno</option>
                                 <option value="2">Professor</option>
                             </select>

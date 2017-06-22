@@ -1,6 +1,4 @@
 
-
-
  <?php
 /* 
  * To change this license header, choose License Headers in Project Properties.
@@ -10,9 +8,9 @@
 
  //Verificação de Segurança
  $checkurl = $_SERVER["PHP_SELF"];
- if(eregi("class.MySQL.php", "$checkurl")) {
-    header("Location: ../index.php");
- }
+// if(eregi("class.MySQL.php", "$checkurl")) {
+//    header("Location: ../index.php");
+// }
 /*
  * Created by WhoAmI
  */
@@ -21,7 +19,6 @@
     var $user="root";
     var $password="";
     var $database="gerenciadortcc";
-
     var $query;
     var $link;
     var $result;
