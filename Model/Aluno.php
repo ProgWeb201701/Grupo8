@@ -11,17 +11,21 @@
  */
 
 class Aluno {
-
+    
+    //Atributos Aluno
     public $nome;
     public $senha;
     public $email;
-
+    
+    
+    //Construtor aluno
     function __construct($nome, $senha, $email) {
         $this->nome = $nome;
         $this->senha = $senha;
         $this->email = $email;
     }
-
+    
+    //Setters Aluno
     function setNome($nome) {
         $this->nome = $nome;
     }
