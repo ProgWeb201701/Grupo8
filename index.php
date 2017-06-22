@@ -38,10 +38,10 @@ and open the template in the editor.
                                     <div class="col-lg-12">
                                         <form id="login-form" action="" method="post" role="form" style="display: block;">
                                             <div class="form-group">
-                                                <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                                <input type="text" name="login" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                                <input type="password" name="senha" id="password" tabindex="2" class="form-control" placeholder="Password">
                                             </div>
 
                                             <div class="form-group">
