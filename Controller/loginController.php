@@ -11,7 +11,10 @@
  *
  * @author junin
  */
-class loginController
-{
-    //put your code here
+class loginController {
+
+    public function loginAluno() {
+      
+    }
+
 }

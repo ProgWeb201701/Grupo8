@@ -26,7 +26,7 @@
     var $link;
     var $result;
 
-    function MySQL() {
+    function ConexaoBanco() {
     //Apenas instancia o Objeto
     }
 
