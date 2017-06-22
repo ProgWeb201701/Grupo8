@@ -12,6 +12,13 @@ class Conexao {
     var $banco = "banco";
     private $mysqli;
 
+    function requisicoesBanco($query) {
+        $this->Abrir();
+        $re = $this->mysqli->query($query);
+        $this->Fechar();
+        return $re;
+    }
+
     public function Abrir() {
         $this->mysqli = new mysqli($this->host, $this->usuario, $this->senha, $this->banco);
     }
