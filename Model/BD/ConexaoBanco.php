@@ -6,10 +6,10 @@
 
 class ConexaoBanco {
 
-     protected $host = "localhost";
-     protected $usuario = "root";
-     protected $senha = "";
-     protected $banco = "gerenciadortcc";
+    protected $host = "localhost";
+    protected $usuario = "root";
+    protected $senha = "";
+    protected $banco = "gerenciadortcc";
     private $mysqli;
 
     function requisicoesBanco($query) {
