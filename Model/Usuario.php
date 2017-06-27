@@ -35,5 +35,5 @@ class Usuario {
     function setNomeUsuario($nomeUsuario) {
         $this->nomeUsuario = $nomeUsuario;
     }
-
+    
 }

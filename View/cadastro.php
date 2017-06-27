@@ -22,11 +22,11 @@ and open the template in the editor.
                             Gerenciador de TCC
                         </a>
                     </div>
-                    <!--                    <div class="navbar-header col-md-1">
-                                            <a href="../index.php" class="navbar-brand" title="sair">
-                                                Sair
-                                            </a>
-                                        </div>-->
+<!--                    <div class="navbar-header col-md-1">
+                        <a href="../index.php" class="navbar-brand" title="sair">
+                            Sair
+                        </a>
+                    </div>-->
                 </div>
             </div>
 
