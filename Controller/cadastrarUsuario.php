@@ -30,12 +30,9 @@ if ($usuario == '1') {
     header("Location: ../View/inicioAluno.php");
 } else {
     $conexao = new ConexaoBanco();
-
-
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-//echo "$sku > $name  > $price";
 
     $query = "INSERT INTO professor (nome, senha, email)
     VALUES ('$nome','$senha','$email')";
