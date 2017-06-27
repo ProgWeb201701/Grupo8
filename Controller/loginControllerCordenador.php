@@ -42,7 +42,7 @@ $conexao = new ConexaoBanco();
 /* A variavel $result pega as varias $login e $senha,
  *   faz uma pesquisa na tabela de usuarios
  */
-$result = $conexao->requisicoesBanco("SELECT * FROM `aluno` WHERE `email` = '$login' AND `senha`= '$senha'");
+$result = $conexao->requisicoesBanco("SELECT * FROM `cordenador` WHERE `email` = '$login' AND `senha`= '$senha'");
 
 /*  Logo abaixo temos um bloco com if e else,
  *      verificando se a variável $result foi bem sucedida,
