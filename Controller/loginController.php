@@ -24,7 +24,7 @@ if ($opcao === 'aluno') {
         $_SESSION['alunoTabela'] = mysqli_fetch_assoc($result);
 
 
-        header('Location:../view/home_aluno.php');
+        header('Location:../view/inicioAluno.php');
     } else {
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
@@ -36,7 +36,7 @@ if ($opcao === 'aluno') {
     if (mysqli_num_rows($result) > 0) {
         $_SESSION['login'] = $usuario;
         $_SESSION['senha'] = $senha;
-        header('Location:../view/home_professor.php');
+        header('Location:../view/cadastrarMonografia.php');
     } else {
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
