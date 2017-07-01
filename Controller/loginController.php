@@ -6,6 +6,18 @@
 
 class loginController
 {
+
+    public function login()
+    {
+        $login = $_POST['login'];
+        $senha = $_POST['senha'];
+        var_dump($login,$senha);
+        die();
+        if ($this->loginAluno($login, $senha) == null) {
+            $this->loginProfessor($login, $senha);
+        }
+    }
+
     function loginAluno($logina, $senhaa)
     {
         $conexao = new ConexaoBanco();
@@ -14,7 +26,7 @@ class loginController
         if ($conexao == null) {
             return null;
         }
-        return $conexao;
+        header("Location: ../View/inicioAluno.php");
     }
 
     function loginProfessor($login, $senha)
@@ -25,7 +37,7 @@ class loginController
         if ($conexao == null) {
             return null;
         }
-        return $conexao;
+        header("Location: ../View/inicioProfessor.php");
     }
 
 }

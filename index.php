@@ -11,6 +11,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/css.css" rel="stylesheet">
+        <script language="JavaScript" src="jss/login.js"></script>
         <title></title>
     </head>
     <body>
@@ -36,18 +37,18 @@ and open the template in the editor.
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form id="login-form" action="Controller/recebeDadosLogin.php" method="post" role="form" style="display: block;">
+                                        <form id="login-form" action="Controller/loginController/login" method="post" role="form" style="display: block;">
                                             <div class="form-group">
-                                                <input type="text" name="login" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                                <input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Username" value="">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="senha" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                                <input type="password" name="senha" id="senha" tabindex="2" class="form-control" placeholder="Password">
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn-primary" value="Entrar">
+                                                        <input type="submit" id="confirmar" name="login-submit" id="login-submit" tabindex="4" class="form-control btn-primary" value="Entrar">
                                                     </div>
                                                     <div class="col-sm-6 center">
                                                         <a type="button" href="View/cadastro.php" class="form-control btn-primary"> Cadastrar-se</a>
