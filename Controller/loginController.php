@@ -1,12 +1,11 @@
 <?php
 
-include '../model/dados/conexaoBanco.php';
 ini_set('display_errors', 1);
 session_start();
 /**
  * Description of controllerLogin
  *
- * @author Bruno
+ * @author WhoAmI
  */
 $usuario = $_POST['login'];
 $senha = $_POST['senha'];
