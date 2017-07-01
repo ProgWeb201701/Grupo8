@@ -37,7 +37,9 @@ and open the template in the editor.
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form id="login-form" action="Controller/loginController.php" method="post" role="form" style="display: block;">
+                                       
+                                        
+                                        <form id="login-form" action="Controller/loginController.php" method="POST" role="form" style="display: block;">
                                             <select id="user" name="user" class="form-control">
                                                 <option value="1">aluno</option>
                                                 <option value="2">professor</option>
@@ -52,14 +54,16 @@ and open the template in the editor.
                                             <div class="form-group">
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <input type="submit" id="confirmar" name="login-submit" id="login-submit" tabindex="4" class="form-control btn-primary" value="Entrar">
+                                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn-primary" value="Entrar">
                                                     </div>
                                                     <div class="col-sm-6 center">
                                                         <a type="button" href="View/cadastro.php" class="form-control btn-primary"> Cadastrar-se</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>                
+                                        </form>     
+                                        
+                                        
                                     </div>              
                                 </div>
                             </div>

@@ -13,7 +13,7 @@ $opcao = $_POST['user'];
 
 if ($opcao === 'aluno') {
     $result = mysqli_query($con, "SELECT * FROM aluno WHERE "
-            . "nome = '$usuario' AND senha = '$senha';");
+            . "nomeAluno = '$usuario' AND senhaAluno = '$senha';");
 
     
     $con = mysqli_connect("localhost", "root", "", "gerenciadortcc");
@@ -24,11 +24,11 @@ if ($opcao === 'aluno') {
         $_SESSION['alunoTabela'] = mysqli_fetch_assoc($result);
 
 
-        header('Location:../view/inicioAluno.php');
+        header('../View/inicioAluno.php');
     } else {
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
-        header('Location:../view/index.php');
+        header('../view/index.php');
     }
 } else if ($opcao === 'professor') {
     $result = mysqli_query($con, "SELECT * FROM professor WHERE "
@@ -36,11 +36,11 @@ if ($opcao === 'aluno') {
     if (mysqli_num_rows($result) > 0) {
         $_SESSION['login'] = $usuario;
         $_SESSION['senha'] = $senha;
-        header('Location:../view/cadastrarMonografia.php');
+        header('Location:../View/cadastrarMonografia.php');
     } else {
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
-        header('Location:../view/index.php');
+        header('Location:../index.php');
     }
 }
 ?>
