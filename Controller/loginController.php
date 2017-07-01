@@ -1,32 +1,47 @@
 <?php
 
-include '../Model/BD/ConexaoBanco.php';
-include '../index.php';
+include '../model/dados/conexaoBanco.php';
+ini_set('display_errors', 1);
+session_start();
+/**
+ * Description of controllerLogin
+ *
+ * @author Bruno
+ */
+$usuario = $_POST['login'];
+$senha = $_POST['senha'];
+$opcao = $_POST['user'];
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $product = new loginController();
-    $login = $_POST['login'];
-    $senha = $_POST['senha'];
-    $product->login($login, $senha);
-}
+if ($opcao === 'aluno') {
+    $result = mysqli_query($con, "SELECT * FROM aluno WHERE "
+            . "nome = '$usuario' AND senha = '$senha';");
 
-class loginController
-{
+    
+    $con = mysqli_connect("localhost", "root", "", "gerenciadortcc");
+    
+    if (mysqli_num_rows($result) > 0) {
+        $_SESSION['login'] = $usuario;
+        $_SESSION['senha'] = $senha;
+        $_SESSION['alunoTabela'] = mysqli_fetch_assoc($result);
 
-    public function login($login, $senha)
-    {
-        $conexao = new ConexaoBanco();
-        $query = "SELECT nome, senha FROM aluno WHERE nome = $login and senha = $senha";
 
-        if (!$conexao->requisicoesBanco($query)) {
-            $query = "SELECT nome, senha FROM professor WHERE nome = $login and senha = $senha";
-            if (!$conexao->requisicoesBanco($query)) {
-                header("Location: ../index.php");
-            }
-            header("Location: ../View/inicioProfessor.php");
-        } else {
-            header("Location: ../View/inicioAluno.php");
-        }
+        header('Location:../view/home_aluno.php');
+    } else {
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        header('Location:../view/index.php');
     }
-
+} else if ($opcao === 'professor') {
+    $result = mysqli_query($con, "SELECT * FROM professor WHERE "
+            . "nomeProfessor = '$usuario' AND senhaProfessor = '$senha';");
+    if (mysqli_num_rows($result) > 0) {
+        $_SESSION['login'] = $usuario;
+        $_SESSION['senha'] = $senha;
+        header('Location:../view/home_professor.php');
+    } else {
+        unset($_SESSION['login']);
+        unset($_SESSION['senha']);
+        header('Location:../view/index.php');
+    }
 }
+?>

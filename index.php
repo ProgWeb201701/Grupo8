@@ -38,6 +38,10 @@ and open the template in the editor.
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <form id="login-form" action="Controller/loginController.php" method="post" role="form" style="display: block;">
+                                            <select id="user" name="user" class="form-control">
+                                                <option value="1">aluno</option>
+                                                <option value="2">professor</option>
+                                            </select>
                                             <div class="form-group">
                                                 <input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Username" value="">
                                             </div>
