@@ -37,7 +37,7 @@ and open the template in the editor.
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form id="login-form" action="Controller/loginController/login" method="post" role="form" style="display: block;">
+                                        <form id="login-form" action="Controller/loginController.php" method="post" role="form" style="display: block;">
                                             <div class="form-group">
                                                 <input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Username" value="">
                                             </div>

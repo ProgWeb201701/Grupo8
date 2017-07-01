@@ -1,43 +1,32 @@
 <?php
 
-// session_start inicia a sessão
-// as variáveis login e senha recebem os dados digitados na página anterior
+include '../Model/BD/ConexaoBanco.php';
+include '../index.php';
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $product = new loginController();
+    $login = $_POST['login'];
+    $senha = $_POST['senha'];
+    $product->login($login, $senha);
+}
 
 class loginController
 {
 
-    public function login()
-    {
-        $login = $_POST['login'];
-        $senha = $_POST['senha'];
-        var_dump($login,$senha);
-        die();
-        if ($this->loginAluno($login, $senha) == null) {
-            $this->loginProfessor($login, $senha);
-        }
-    }
-
-    function loginAluno($logina, $senhaa)
+    public function login($login, $senha)
     {
         $conexao = new ConexaoBanco();
-        $query = "SELECT nome, senha from aluno WHERE nome = '$login' and senha = '$senha'";
-        $conexao->requisicoesBanco($query);
-        if ($conexao == null) {
-            return null;
-        }
-        header("Location: ../View/inicioAluno.php");
-    }
+        $query = "SELECT nome, senha FROM aluno WHERE nome = $login and senha = $senha";
 
-    function loginProfessor($login, $senha)
-    {
-        $conexao = new ConexaoBanco();
-        $query = "SELECT nome, senha from professor WHERE nome = '$login' and senha = '$senha'";
-        $conexao->requisicoesBanco($query);
-        if ($conexao == null) {
-            return null;
+        if (!$conexao->requisicoesBanco($query)) {
+            $query = "SELECT nome, senha FROM professor WHERE nome = $login and senha = $senha";
+            if (!$conexao->requisicoesBanco($query)) {
+                header("Location: ../index.php");
+            }
+            header("Location: ../View/inicioProfessor.php");
+        } else {
+            header("Location: ../View/inicioAluno.php");
         }
-        header("Location: ../View/inicioProfessor.php");
     }
 
 }
