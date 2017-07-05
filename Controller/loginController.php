@@ -1,46 +1,55 @@
 <?php
 
 ini_set('display_errors', 1);
+include '../Model/BD/ConexaoBanco.php';
 session_start();
-/**
- * Description of controllerLogin
- *
- * @author WhoAmI
- */
-$usuario = $_POST['login'];
+
+
+$login = $_POST['login'];
 $senha = $_POST['senha'];
-$opcao = $_POST['user'];
+$usuario = $_POST['usuario'];
+$logar = new loginController();
+$logar->login($login, $senha, $usuario);
 
-if ($opcao === 'aluno') {
-    $result = mysqli_query($con, "SELECT * FROM aluno WHERE "
-            . "nomeAluno = '$usuario' AND senhaAluno = '$senha';");
+class loginController
+{
 
-    
-    $con = mysqli_connect("localhost", "root", "", "gerenciadortcc");
-    
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['login'] = $usuario;
-        $_SESSION['senha'] = $senha;
-        $_SESSION['alunoTabela'] = mysqli_fetch_assoc($result);
+    public function login($login, $senha, $usuario)
+    {
+        $conexao = new ConexaoBanco();
 
+        if ($usuario == 1) {
+            $query = "SELECT * FROM aluno WHERE nomeAluno = '$login' and senhaAluno = '$senha'";
+            $result = $conexao->requisicoesBanco($query);
 
-        header('../View/inicioAluno.php');
-    } else {
-        unset($_SESSION['login']);
-        unset($_SESSION['senha']);
-        header('../view/index.php');
+            if (mysqli_num_rows($result) > 0) {
+                $_SESSION['login'] = $login;
+                $_SESSION['senha'] = $senha;
+                $_SESSION['alunoTabela'] = mysqli_fetch_assoc($result);
+
+                header("Location: ../View/inicioAluno.php");
+            } else {
+                unset($_SESSION['login']);
+                unset($_SESSION['senha']);
+                header('Location:../index.php');
+            }
+        } else {
+            $query = "SELECT * FROM professor  WHERE nomeProfessor = '$login' and senhaProfessor = '$senha'";
+            $result = $conexao->requisicoesBanco($query);
+
+            if (mysqli_num_rows($result) > 0) {
+                $_SESSION['login'] = $login;
+                $_SESSION['senha'] = $senha;
+                $_SESSION['professorTabela'] = mysqli_fetch_assoc($result);
+
+                header("Location: ../View/inicioProfessor.php");
+            } else {
+                unset($_SESSION['login']);
+                unset($_SESSION['senha']);
+                header('Location:../index.php');
+            }
+        }
     }
-} else if ($opcao === 'professor') {
-    $result = mysqli_query($con, "SELECT * FROM professor WHERE "
-            . "nomeProfessor = '$usuario' AND senhaProfessor = '$senha';");
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['login'] = $usuario;
-        $_SESSION['senha'] = $senha;
-        header('Location:../View/cadastrarMonografia.php');
-    } else {
-        unset($_SESSION['login']);
-        unset($_SESSION['senha']);
-        header('Location:../index.php');
-    }
+
 }
 ?>

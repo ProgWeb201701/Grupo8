@@ -6,7 +6,8 @@ and open the template in the editor.
 -->
 <html>
     <head>
-       <?php
+
+        <?php
         session_start();
         include '../Model/BD/ConexaoBanco.php';
         if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == true)) {
@@ -17,12 +18,11 @@ and open the template in the editor.
 
         $logado = $_SESSION['login'];
         $senha = $_SESSION['senha'];
-        $alunoLogin = $_SESSION['alunoTabela'];
+        $professorLogin = $_SESSION['professorTabela'];
         $conexao = new ConexaoBanco();
-        $query= "SELECT * FROM aluno WHERE idAluno = ".$alunoLogin['idAluno'];
+        $query = "SELECT * FROM professor WHERE idProfessor = " . $professorLogin['idProfessor'];
         $result = $conexao->requisicoesBanco($query);
-        $alunoTabela = mysqli_fetch_assoc($result);
-        
+        $professorTabela = mysqli_fetch_assoc($result);
         ?>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,14 +35,19 @@ and open the template in the editor.
         <div>
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">
-                    <div class="navbar-header col-md-11">
-                        <a href="inicioAluno.php" class="navbar-brand" title="Página inicial">
+                    <div class="navbar-header col-md-8">
+                        <a href="inicioProfessor.php" class="navbar-brand" title="Página inicial">
                             Gerenciador de TCC
+                        </a>
+                    </div>
+                    <div class="navbar-header col-md-3">
+                        <a href="GerenciarTCC.php" class="navbar-brand" title="visualizar Trabalhos">
+                            Visualizar Trabalhos
                         </a>
                     </div>
 
                     <div class="navbar-header col-md-1">
-                        <a href="../index.php" class="navbar-brand" title="Página inicial">
+                        <a href="../index.php" class="navbar-brand" title="sair">
                             Sair
                         </a>
                     </div>
