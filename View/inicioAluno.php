@@ -40,7 +40,7 @@ and open the template in the editor.
                             Gerenciador de TCC
                         </a>
                     </div>
-
+                    <input type="button" name="cancelar" value="Cadastrar monografia" onclick="window.open('../View/cadastrarMonografia.php');" />
                     <div class="navbar-header col-md-1">
                         <a href="../index.php" class="navbar-brand" title="Página inicial">
                             Sair
