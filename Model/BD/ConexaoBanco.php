@@ -10,38 +10,39 @@ class ConexaoBanco {
     protected $usuario = "root";
     protected $senha = "";
     protected $banco = "gerenciadortcc";
-    private $mysqli;
+    protected $link;
+    protected $result;
 
-    function requisicoesBanco($query) {
-        $this->Abrir();
-        $re = $this->mysqli->query($query);
-        $this->Fechar();
-        return $re;
-    }
-
-    public function Abrir() {
-        $this->mysqli = mysqli_connect($this->host, $this->usuario, $this->senha, $this->banco);
-    }
-
-    public function Fechar() {
-        $this->mysqli = mysql_close();
-    }
-
-    public function select($query) {
-
-        $link = mysqli_connect($this->host, $this->usuario, $this->senha, $this->banco);
-
-        /* check connection */
-        if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
+    function connect() {
+        $this->link = mysql_connect($this->host, $this->usuario, $this->senha);
+        if (!$this->link) {
+            echo "Falha na conexão com o Banco de Dados!<br />";
+            echo "Erro: " . mysql_error();
+            die();
+        } else if (!mysql_select_db($this->banco, $this->link)) {
+            echo "O Bando de Dados solicitado não pode ser aberto!<br />";
+            echo "Erro: " . mysql_error();
+            die();
         }
-        $result = mysqli_query($link, $query);
+    }
 
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    function executeQuery($query) {
+        $this->connect();
+        $this->query = $query;
+        if ($this->result = mysql_query($this->query)) {
+            $this->disconnect();
+            return $this->result;
+        } else {
+            echo "Ocorreu um erro na execução da SQL";
+            echo "Erro :" . mysql_error();
+            echo "SQL: " . $query;
+            die();
+            disconnect();
+        }
+    }
 
-        mysqli_close($link);
-        return $row;
+    function disconnect() {
+        return mysql_close($this->link);
     }
 
 }
