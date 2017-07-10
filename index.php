@@ -48,10 +48,10 @@ and open the template in the editor.
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Username" value="">
+                                                <input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Nome de usuario" value="">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="senha" id="senha" tabindex="2" class="form-control" placeholder="Password">
+                                                <input type="password" name="senha" id="senha" tabindex="2" class="form-control" placeholder="Senha">
                                             </div>
 
                                             <div class="form-group">
