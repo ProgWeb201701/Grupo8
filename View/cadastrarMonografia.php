@@ -61,7 +61,10 @@ and open the template in the editor.
                         <p>Nome: <input type="textfield" name="nometcc" id="nometcc"></p>
                         <br>
                         <input class="btn btn-primary" name="upload" type="submit" class="box" id="upload" value=" Upload ">
+                        <button type="reset" class="btn btn-default">Cancelar</button>
+
                     </div>
+
                 </div>
             </form>
         </div>

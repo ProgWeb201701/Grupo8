@@ -33,14 +33,18 @@ and open the template in the editor.
     </head>
     <body>
         <div>
-            <div class="navbar navbar-default" role="navigation">
+              <div class="navbar navbar-default" role="navigation">
                 <div class="container">
-                    <div class="navbar-header col-md-11">
+                    <div class="navbar-header col-md-7">
                         <a href="inicioAluno.php" class="navbar-brand" title="Página inicial">
                             Gerenciador de TCC
                         </a>
                     </div>
-                    <input type="button" name="cancelar" value="Cadastrar monografia" onclick="window.open('../View/cadastrarMonografia.php');" />
+                    <div class="navbar-header col-md-4">
+                        <a href="cadastrarMonografia.php" class="navbar-brand" title="Página inicial">
+                            Cadastrar monografia
+                        </a>
+                    </div>
                     <div class="navbar-header col-md-1">
                         <a href="../index.php" class="navbar-brand" title="Página inicial">
                             Sair
@@ -48,5 +52,6 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+        </div>
     </body>
 </html>
