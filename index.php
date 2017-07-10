@@ -47,7 +47,6 @@ and open the template in the editor.
                                                     <option value="3">coordenador</option>
                                                 </select>
                                             </div>
-
                                             <div class="form-group">
                                                 <input type="text" name="login" id="login" tabindex="1" class="form-control" placeholder="Nome de usuario" value="">
                                             </div>

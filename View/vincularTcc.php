@@ -53,7 +53,7 @@ and open the template in the editor.
             </div>
             <form class="form-horizontal" method="POST" action="../Controller/vincularTccController.php">
                 <div class="form-group">
-                    <select id="user" name="usuario" class="form-control">
+                    <select id="user" name="idtcc" class="form-control">
                         <?php
                         $tcc = $conexao->lerTabela('tcc');
                         while ($obj = mysqli_fetch_object($tcc)) {
@@ -63,7 +63,7 @@ and open the template in the editor.
                     </select>
                 </div>
                 <div class="form-group">
-                    <select id="user" name="usuario" class="form-control">
+                    <select id="user" name="idorientador" class="form-control">
                         <?php
                         $tcc = $conexao->lerTabela('professor');
                         while ($obj = mysqli_fetch_object($tcc)) {
@@ -73,7 +73,7 @@ and open the template in the editor.
                     </select>
                 </div>
                 <div class="form-group">
-                    <select id="user" name="usuario" class="form-control">
+                    <select id="user" name="idavaliador" class="form-control">
                         <?php
                         $tcc = $conexao->lerTabela('professor');
                         while ($obj = mysqli_fetch_object($tcc)) {
@@ -83,7 +83,7 @@ and open the template in the editor.
                     </select>
                 </div>
                 <div class="form-group">
-                    <select id="user" name="usuario" class="form-control">
+                    <select id="user" name="idavaliador2" class="form-control">
                         <?php
                         $tcc = $conexao->lerTabela('professor');
                         while ($obj = mysqli_fetch_object($tcc)) {
@@ -91,6 +91,13 @@ and open the template in the editor.
                         }
                         ?>
                     </select>
+                </div>
+
+                <div class="col-md-8">
+                    <input type="submit" name="cadastrar" id="cadastrar"  class="btn btn-primary" value="Confirmar">
+                    <a href="inicioCoordenador.php"title="cancelar" class="btn btn-danger">
+                        cancelar 
+                    </a>
                 </div>
 
             </form>

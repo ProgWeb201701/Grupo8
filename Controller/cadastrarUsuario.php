@@ -24,8 +24,8 @@ if ($usuario == '1') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $query = "INSERT INTO aluno (nome, senha, email)
-    VALUES ('$nome','$senha','$email')";
+    $query = "INSERT INTO aluno (nomeAluno, senhaAluno)
+    VALUES ('$nome','$senha')";
     $conexao->executeQuery($query);
     header("Location: ../View/inicioAluno.php");
 } else {
@@ -34,7 +34,8 @@ if ($usuario == '1') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $query = "INSERT INTO professor (nome, senha, email)
+    $query = "INSERT INTO professor (nomeProfessor, senhaProfessor, emailProfessor)
     VALUES ('$nome','$senha','$email')";
     $conexao->executeQuery($query);
+    header("Location: ../View/inicioProfessor.php");
 }
