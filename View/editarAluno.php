@@ -6,10 +6,8 @@ and open the template in the editor.
 -->
 <html>
     <head>
-
         <?php
         session_start();
-
         include '../Model/BD/ConexaoBanco.php';
         if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == true)) {
             unset($_SESSION['login']);
@@ -19,14 +17,11 @@ and open the template in the editor.
 
         $logado = $_SESSION['login'];
         $senha = $_SESSION['senha'];
-        $professorLogin = $_SESSION['professorTabela'];
+        $alunoLogin = $_SESSION['alunoTabela'];
         $conexao = new ConexaoBanco();
-        $query = "SELECT * FROM professor WHERE idProfessor = " . $professorLogin['idProfessor'];
+        $query = "SELECT * FROM aluno WHERE idAluno = " . $alunoLogin['idAluno'];
         $result = $conexao->executeQuery($query);
-        $professorTabela = mysqli_fetch_assoc($result);
-
-        $prof = $conexao->executeQuery('select * from professor where idProfessor =' . $professorLogin['idProfessor']);
-        $professor = mysqli_fetch_object($prof);
+        $alunoTabela = mysqli_fetch_assoc($result);
         ?>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,30 +34,18 @@ and open the template in the editor.
         <div>
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">
-                    <div class="navbar-header col-md-3">
-                        <a href="inicioProfessor.php" class="navbar-brand" title="Página inicial">
+                    <div class="navbar-header col-md-7">
+                        <a href="inicioAluno.php" class="navbar-brand" title="Página inicial">
                             Gerenciador de TCC
                         </a>
                     </div>
-                    <div class="navbar-header col-md-3">
-                        <a href="listaTcc.php" class="navbar-brand" title="Avaliar Trabalhos">
-                            Avaliar Trabalhos
+                    <div class="navbar-header col-md-4">
+                        <a href="cadastrarMonografia.php" class="navbar-brand" title="Página inicial">
+                            Cadastrar monografia
                         </a>
                     </div>
-
-                    <div class="navbar-header col-md-3">
-                        <a href="visualizarTcc.php" class="navbar-brand" title="Visualizar Trabalhos">
-                            Visualizar Trabalhos
-                        </a>
-                    </div>
-                    <div class="navbar-header col-md-2">
-                        <a href="editarProfessor.php" class="navbar-brand" title="Visualizar Trabalhos">
-                            Editar Dados
-                        </a>
-                    </div>
-
                     <div class="navbar-header col-md-1">
-                        <a href="../index.php" class="navbar-brand" title="sair">
+                        <a href="../index.php" class="navbar-brand" title="Página inicial">
                             Sair
                         </a>
                     </div>
@@ -74,16 +57,14 @@ and open the template in the editor.
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="idNome">Nome</label>  
                         <div class="col-md-5">
-                            <input id="idNome" name="nome" type="text" placeholder="Nome do usuário" class="form-control input-md" required="" value=<?php echo $professorTabela['nomeProfessor']?>>
-                            <input id="idNome" name="nome" type="text" placeholder="Nome do usuário" class="form-control input-md" required="" value=<?php $professor->nomeProfessor ?>>
+                            <input id="idNome" name="nome" type="text" placeholder="Nome do usuário" class="form-control input-md" required="" value=<?php echo $alunoTabela['nomeAluno']?>>
                         </div>
                     </div>
                     <!-- Password input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="idSenha">Senha</label>
                         <div class="col-md-5">
-                            <input id="idSenha" name="senha" type="password" placeholder="Digite a senha" class="form-control input-md" required="" value=<?php echo $professorTabela['senhaProfessor']?>>
-                            <input id="idSenha" name="senha" type="password" placeholder="Digite a senha" class="form-control input-md" required="" value=<?php $professor->senhaProfessor ?>>
+                            <input id="idSenha" name="senha" type="password" placeholder="Digite a senha" class="form-control input-md" required="" value=<?php echo $alunoTabela['senhaAluno']?>>
 
                         </div>
                     </div>
