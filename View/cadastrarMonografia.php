@@ -53,21 +53,16 @@ and open the template in the editor.
             </div>
 
             <form method="post" enctype="multipart/form-data" action="../Controller/tccController.php">
-                <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
-                    <tr>
-                        <td width="246">
-                            <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-                            <input type="file" class="form-control" id="arquivo" name="arquivo" placeholder="Arquivo">
-                            <input type="textfield" name="nometcc" value="nometcc" id="nometcc">
-                            <div class="navbar-header col-md-1">
-                                <a href="../index.php" class="navbar-brand" title="Página inicial">
-                                    Sair
-                                </a>
-                            </div>
-                        </td>
-                        <td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
-                    </tr>
-                </table>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Enviar Monografia</label>
+                    <div class="col-lg-6">
+                        <input type="file" class="form-control" id="arquivo" name="userfile" placeholder="Arquivo">
+                        <br>
+                        <p>Nome: <input type="textfield" name="nometcc" id="nometcc"></p>
+                        <br>
+                        <input class="btn btn-primary" name="upload" type="submit" class="box" id="upload" value=" Upload ">
+                    </div>
+                </div>
             </form>
         </div>
     </body>
