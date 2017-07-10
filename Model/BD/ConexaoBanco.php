@@ -4,7 +4,8 @@
  * Created by WhoAmI
  */
 
-class ConexaoBanco {
+class ConexaoBanco
+{
 
     protected $host = "localhost";
     protected $usuario = "root";
@@ -13,11 +14,13 @@ class ConexaoBanco {
     protected $link;
     protected $result;
 
-    function connect() {
+    function connect()
+    {
         return $this->link = mysqli_connect($this->host, $this->usuario, $this->senha, $this->banco);
     }
 
-    function executeQuery($query) {
+    function executeQuery($query)
+    {
 
         $this->query = $query;
         $this->result = mysqli_query($this->connect(), $query);
@@ -33,8 +36,26 @@ class ConexaoBanco {
         }
     }
 
-    function disconnect() {
+    function disconnect()
+    {
         return mysqli_close($this->link);
+    }
+
+    function lerTabela($tabela)
+    {
+        
+        $sql = "SELECT * FROM $tabela;";
+        $result = mysqli_query($this->connect(), $sql);
+        mysqli_close($this->connect());
+        return $result;
+    }
+
+    function lerLinha($query)
+    {
+        
+        $result = mysqli_query($this->connect(), $query);
+        $linha = mysqli_fetch_assoc($result);
+        return $linha;
     }
 
 }
