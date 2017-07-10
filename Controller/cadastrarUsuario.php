@@ -26,7 +26,7 @@ if ($usuario == '1') {
 
     $query = "INSERT INTO aluno (nome, senha, email)
     VALUES ('$nome','$senha','$email')";
-    $conexao->requisicoesBanco($query);
+    $conexao->executeQuery($query);
     header("Location: ../View/inicioAluno.php");
 } else {
     $conexao = new ConexaoBanco();
@@ -36,5 +36,5 @@ if ($usuario == '1') {
 
     $query = "INSERT INTO professor (nome, senha, email)
     VALUES ('$nome','$senha','$email')";
-    $conexao->requisicoesBanco($query);
+    $conexao->executeQuery($query);
 }

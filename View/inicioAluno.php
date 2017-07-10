@@ -20,7 +20,7 @@ and open the template in the editor.
         $alunoLogin = $_SESSION['alunoTabela'];
         $conexao = new ConexaoBanco();
         $query= "SELECT * FROM aluno WHERE idAluno = ".$alunoLogin['idAluno'];
-        $result = $conexao->requisicoesBanco($query);
+        $result = $conexao->executeQuery($query);
         $alunoTabela = mysqli_fetch_assoc($result);
         
         ?>
