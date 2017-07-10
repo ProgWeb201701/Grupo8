@@ -42,8 +42,11 @@ if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
             . "`idAvaliadorUm`, `idAvaliadorDois`, `tipo`, `nome`, `tamanho`, `conteudo`) "
             . "VALUES ('',$id,'','','',$fileName', '$fileSize', '$fileType', '$content')";
 
-
-
-    $conexao = new ConexaoBanco();
-    $result = $conexao->requisicoesBanco($query);
+    $resulta = mysqli_query($conexao, $query);
+    $conexao->Fechar();
+    if ($resulta) {
+        echo 'File uploaded';
+    } else {
+        echo 'File not uploaded';
+    }
 }
