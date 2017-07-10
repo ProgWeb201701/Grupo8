@@ -82,7 +82,7 @@ and open the template in the editor.
                                         <a href="#" class="list-group-item active"> Titulo: ' . $obj->tituloTcc . '</a>
             <a href="#" class="list-group-item"> Nome do Aluno: ' . $alun->nomeAluno . '</a>
                 <a href="#" class="list-group-item"> Nome do Orientador: ' . $prof->nomeProfessor . '</a>
-                                     <input type="hidden" name"idtcc" value"'.$obj->idTcc.'"/>
+                                     <input type="hidden" name="idtcc" value="' . $obj->idTcc . '"/>
                                 <input type= "textfield" size="2%" name= "nota" value=""></input>
                                 <td>
                                     <a href="listarTcc.php">
@@ -90,8 +90,16 @@ and open the template in the editor.
                                     </a>
                                 </td>
                             </tr>
+                            </form>
+                                 <form id="login-form" action="../Controller/visualizarMonografia.php" method="POST" role="form" style="display: block;">
+               <input type="hidden" name="id" value="' . $obj->idTcc . '"/>
+                                                       <a href="visualizarTcc.php">
+
+<input type="submit" name="cadastrar" id="cadastrar" class="btn btn-primary" value="Visualizar Monografia">
+</a>
+</form>
                             <br><br>
-                            </form>';
+';
                             }
                         }
                     }

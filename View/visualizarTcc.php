@@ -77,9 +77,12 @@ and open the template in the editor.
     <a href="#" class="list-group-item active"> Titulo: ' . $obj->tituloTcc . '</a>
             <a href="#" class="list-group-item"> Nome do Aluno: ' . $alun->nomeAluno . '</a>
                 <a href="#" class="list-group-item"> Nome do Orientador: ' . $prof->nomeProfessor . '</a>
-     <form id="login-form" action="../Controller/VisualizarMonografia.php" method="POST" role="form" style="display: block;">
-               <input type="hidden" name"id" value"' . $obj->idTcc . '"/>
+     <form id="login-form" action="../Controller/visualizarMonografia.php" method="POST" role="form" style="display: block;">
+               <input type="hidden" name="id" value="' . $obj->idTcc . '"/>
+                                                       <a href="visualizarTcc.php">
+
 <input type="submit" name="cadastrar" id="cadastrar" class="btn btn-primary" value="Visualizar Monografia">
+</a>
 </form>
   </div>';
                         }

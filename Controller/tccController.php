@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include '../Model/BD/ConexaoBanco.php';
 if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == true)) {
     unset($_SESSION['login']);
@@ -30,8 +32,8 @@ if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
     $alunoTabela = mysqli_fetch_assoc($result);
     $id = $alunoLogin['idAluno'];
     $titulotcc = $_POST['nometcc'];
-    $query = "INSERT INTO tcc(nome, tamanho,tipo, conteudo, tituloTcc) "
-            . "VALUES ('$fileName', '$fileSize', '$fileType', '$content', '$titulotcc')";
+    $query = "INSERT INTO tcc(nome, tamanho,tipo, conteudo, tituloTcc, idOrientado) "
+            . "VALUES ('$fileName', '$fileSize', '$fileType', '$content', '$titulotcc', '$id')";
 
     $resulta = $conexao->executeQuery($query);
     if ($resulta) {

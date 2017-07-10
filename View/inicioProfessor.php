@@ -35,13 +35,19 @@ and open the template in the editor.
         <div>
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">
-                    <div class="navbar-header col-md-8">
+                    <div class="navbar-header col-md-5">
                         <a href="inicioProfessor.php" class="navbar-brand" title="Página inicial">
                             Gerenciador de TCC
                         </a>
                     </div>
                     <div class="navbar-header col-md-3">
-                        <a href="listaTcc.php" class="navbar-brand" title="visualizar Trabalhos">
+                        <a href="listaTcc.php" class="navbar-brand" title="Avaliar Trabalhos">
+                            Avaliar Trabalhos
+                        </a>
+                    </div>
+
+                    <div class="navbar-header col-md-3">
+                        <a href="visualizarTcc.php" class="navbar-brand" title="Visualizar Trabalhos">
                             Visualizar Trabalhos
                         </a>
                     </div>
