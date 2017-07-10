@@ -9,6 +9,7 @@ and open the template in the editor.
 
         <?php
         session_start();
+      
         include '../Model/BD/ConexaoBanco.php';
         if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == true)) {
             unset($_SESSION['login']);
@@ -23,6 +24,8 @@ and open the template in the editor.
         $query = "SELECT * FROM professor WHERE idProfessor = " . $professorLogin['idProfessor'];
         $result = $conexao->executeQuery($query);
         $professorTabela = mysqli_fetch_assoc($result);
+        $prof = $conexao->executeQuery('select * from professor where idProfessor ='. $professorLogin['idProfessor']);
+        $professor = mysqli_fetch_object($prof);
         ?>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,6 +67,35 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+            <form class="form-horizontal" method="POST" action="../Controller/editarProfessorController.php">
+                <fieldset>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="idNome">Nome</label>  
+                        <div class="col-md-5">
+                            <input id="idNome" name="nome" type="text" placeholder="Nome do usuário" class="form-control input-md" required="" value=<?php $professor->nomeProfessor?>>
+                        </div>
+                    </div>
+                    <!-- Password input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="idSenha">Senha</label>
+                        <div class="col-md-5">
+                            <input id="idSenha" name="senha" type="password" placeholder="Digite a senha" class="form-control input-md" required="" value=<?php $professor->senhaProfessor?>>
+
+                        </div>
+                    </div>
+                    <!-- Button (Double) -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="idConfirmar"></label>
+                        <div class="col-md-8">
+                            <input type="submit" name="cadastrar" id="cadastrar"  class="btn btn-primary" value="Confirmar">
+                            <a href="inicioProfessor.php"title="cancelar" class="btn btn-danger">
+                                cancelar 
+                            </a>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
         </div>
     </body>
 </html>
