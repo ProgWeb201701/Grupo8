@@ -51,12 +51,6 @@ and open the template in the editor.
                             <input id="idNome" name="nome" type="text" placeholder="Nome do usuário" class="form-control input-md" required="">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="idEmail">Email</label>  
-                        <div class="col-md-5">
-                            <input id="idNome" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
-                        </div>
-                    </div>
                     <!-- Password input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="idSenha">Senha</label>
