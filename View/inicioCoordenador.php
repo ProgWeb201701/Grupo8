@@ -30,7 +30,7 @@ and open the template in the editor.
         <link href="css/css.css" rel="stylesheet">
         <title></title>
     </head>
-    <body>
+    <body background="http://i.ytimg.com/vi/La9e02Kg7QI/hqdefault.jpg">
         <div>
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">

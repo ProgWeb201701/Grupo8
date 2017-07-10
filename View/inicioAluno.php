@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-       <?php
+        <?php
         session_start();
         include '../Model/BD/ConexaoBanco.php';
         if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == true)) {
@@ -14,15 +14,14 @@ and open the template in the editor.
             unset($_SESSION['senha']);
             header('Location:../index.php');
         }
-        
+
         $logado = $_SESSION['login'];
         $senha = $_SESSION['senha'];
         $alunoLogin = $_SESSION['alunoTabela'];
         $conexao = new ConexaoBanco();
-        $query= "SELECT * FROM aluno WHERE idAluno = ".$alunoLogin['idAluno'];
+        $query = "SELECT * FROM aluno WHERE idAluno = " . $alunoLogin['idAluno'];
         $result = $conexao->executeQuery($query);
         $alunoTabela = mysqli_fetch_assoc($result);
-        
         ?>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,9 +30,9 @@ and open the template in the editor.
         <link href="css/css.css" rel="stylesheet">
         <title></title>
     </head>
-    <body>
+    <body background="https://4.bp.blogspot.com/-5QjFeqrhEag/VyCO8m-BLmI/AAAAAAAAChs/iWNL6qHLOUon5RetBBtY0tyBRNbUKmcrgCLcB/s1600/doge-lion.jpg">
         <div>
-              <div class="navbar navbar-default" role="navigation">
+            <div class="navbar navbar-default" role="navigation">
                 <div class="container">
                     <div class="navbar-header col-md-7">
                         <a href="inicioAluno.php" class="navbar-brand" title="Página inicial">
