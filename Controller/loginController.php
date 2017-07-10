@@ -14,7 +14,7 @@ $logar->login($login, $senha, $usuario);
 class loginController {
 
     public function login($login, $senha, $usuario) {
-       
+
         $conexao = new ConexaoBanco();
 
         if ($usuario == 1) {
@@ -32,7 +32,7 @@ class loginController {
                 unset($_SESSION['senha']);
                 header('Location:../index.php');
             }
-        } else {
+        } else if ($usuario == 2) {
             $query = "SELECT * FROM professor  WHERE nomeProfessor = '$login' and senhaProfessor = '$senha'";
             $result = $conexao->executeQuery($query);
 
@@ -42,6 +42,21 @@ class loginController {
                 $_SESSION['professorTabela'] = mysqli_fetch_assoc($result);
 
                 header("Location: ../View/inicioProfessor.php");
+            } else {
+                unset($_SESSION['login']);
+                unset($_SESSION['senha']);
+                header('Location:../index.php');
+            }
+        } else if ($usuario == 3) {
+            $query = "SELECT * FROM coordenador  WHERE nomeCoordenador = '$login' and senhaCoordenador = '$senha'";
+            $result = $conexao->executeQuery($query);
+
+            if (mysqli_num_rows($result) > 0) {
+                $_SESSION['login'] = $login;
+                $_SESSION['senha'] = $senha;
+                $_SESSION['coordenadorTabela'] = mysqli_fetch_assoc($result);
+
+                header('Location:../View/inicioCoordenador.php');
             } else {
                 unset($_SESSION['login']);
                 unset($_SESSION['senha']);
