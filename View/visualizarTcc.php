@@ -74,10 +74,13 @@ and open the template in the editor.
                     while ($alun = mysqli_fetch_object($aluno)) {
                         while ($prof = mysqli_fetch_object($orientador)) {
                             echo ' <div class="list-group">
-    <a href="#" class="list-group-item active">' . $obj->tituloTcc . '</a>
-            <a href="#" class="list-group-item">' . $alun->nomeAluno . '</a>
-                <a href="#" class="list-group-item">' . $prof->nomeProfessor . '</a>
-
+    <a href="#" class="list-group-item active"> Titulo: ' . $obj->tituloTcc . '</a>
+            <a href="#" class="list-group-item"> Nome do Aluno: ' . $alun->nomeAluno . '</a>
+                <a href="#" class="list-group-item"> Nome do Orientador: ' . $prof->nomeProfessor . '</a>
+     <form id="login-form" action="../Controller/VisualizarMonografia.php" method="POST" role="form" style="display: block;">
+               <input type="hidden" name"id" value"' . $obj->idTcc . '"/>
+<input type="submit" name="cadastrar" id="cadastrar" class="btn btn-primary" value="Visualizar Monografia">
+</form>
   </div>';
                         }
                     }

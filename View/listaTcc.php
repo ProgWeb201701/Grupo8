@@ -45,8 +45,8 @@ and open the template in the editor.
                             Avaliar Trabalhos
                         </a>
                     </div>
-                    
-                     <div class="navbar-header col-md-3">
+
+                    <div class="navbar-header col-md-3">
                         <a href="visualizarTcc.php" class="navbar-brand" title="Visualizar Trabalhos">
                             Visualizar Trabalhos
                         </a>
@@ -76,15 +76,13 @@ and open the template in the editor.
                         $orientador = $conexao->executeQuery($query2);
                         while ($alun = mysqli_fetch_object($aluno)) {
                             while ($prof = mysqli_fetch_object($orientador)) {
+                                echo '            
+                                    <form id="login-form" action="../Controller/AvaliarTccController.php" method="POST" role="form" style="display: block;">
 
-                                echo '             <form id="login-form" action="../Controller/AvaliarTccController.php" method="POST" role="form" style="display: block;">
-
-                                        <div>
-                            <tr>
-                                <td>|' . $obj->tituloTcc . '|   </td><td>/' . $alun->nomeAluno . '|      </td></td>' .
-                                $prof->nomeProfessor . '|         </td>
-                                    <input type="hidden" name="idtcc" value="'.$obj->idTcc.'" />
-                                     
+                                        <a href="#" class="list-group-item active"> Titulo: ' . $obj->tituloTcc . '</a>
+            <a href="#" class="list-group-item"> Nome do Aluno: ' . $alun->nomeAluno . '</a>
+                <a href="#" class="list-group-item"> Nome do Orientador: ' . $prof->nomeProfessor . '</a>
+                                     <input type="hidden" name"idtcc" value"'.$obj->idTcc.'"/>
                                 <input type= "textfield" size="2%" name= "nota" value=""></input>
                                 <td>
                                     <a href="listarTcc.php">
@@ -93,13 +91,12 @@ and open the template in the editor.
                                 </td>
                             </tr>
                             <br><br>
-                            </div>
                             </form>';
                             }
                         }
                     }
                 }
-            
+
                 mysqli_free_result($tccs);
             }
             ?>
