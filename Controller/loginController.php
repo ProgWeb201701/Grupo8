@@ -20,7 +20,7 @@ class loginController
 
         if ($usuario == 1) {
             $query = "SELECT * FROM aluno WHERE nomeAluno = '$login' and senhaAluno = '$senha'";
-            $result = $conexao->requisicoesBanco($query);
+            $result = $conexao->executeQuery($query);
 
             if (mysqli_num_rows($result) > 0) {
                 $_SESSION['login'] = $login;
@@ -35,7 +35,7 @@ class loginController
             }
         } else {
             $query = "SELECT * FROM professor  WHERE nomeProfessor = '$login' and senhaProfessor = '$senha'";
-            $result = $conexao->requisicoesBanco($query);
+            $result = $conexao->executeQuery($query);
 
             if (mysqli_num_rows($result) > 0) {
                 $_SESSION['login'] = $login;

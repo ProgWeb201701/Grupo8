@@ -21,7 +21,7 @@ and open the template in the editor.
         $professorLogin = $_SESSION['professorTabela'];
         $conexao = new ConexaoBanco();
         $query = "SELECT * FROM professor WHERE idProfessor = " . $professorLogin['idProfessor'];
-        $result = $conexao->requisicoesBanco($query);
+        $result = $conexao->executeQuery($query);
         $professorTabela = mysqli_fetch_assoc($result);
         ?>
         <meta charset="utf-8">

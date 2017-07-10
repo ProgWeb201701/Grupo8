@@ -51,16 +51,19 @@ and open the template in the editor.
                 <ul class="list-group">
                     <?php
                     $conec = new ConexaoBanco();
-                    $query = 'SELECT tcc.tituloTcc, aluno.nomeAluno, professor.nomeProfessor FROM tcc
-INNER JOIN professor
-ON professor.idProfessor = tcc.idOrientador
-INNER JOIN aluno
-ON aluno.idAluno = tcc.idOrientando';
-                    $dado = $conec->select($query);
 
-                    echo '  <a href="#" class="list-group-item active">'.$dado['tituloTcc']. $dado['nomeAluno'].$dado['nomeProfessor'].'</a>
-  <a href="#" class="list-group-item">'.$dado['tituloTcc']. $dado['nomeAluno'].$dado['nomeProfessor'].'</a>
-  <a href="#" class="list-group-item">'.$dado['tituloTcc']. $dado['nomeAluno'].$dado['nomeProfessor'].'</a>';
+                    $query = 'SELECT tcc.tituloTcc, aluno.nomeAluno, professor.nomeProfessor FROM tcc
+                    INNER JOIN professor
+                    ON professor.idProfessor = tcc.idOrientador
+                    INNER JOIN aluno
+                    ON aluno.idAluno = tcc.idOrientando
+                    WHERE tcc.idAvaliadorUm =' . $professorLogin['idProfessor'] . 'OR tcc.idAvaliadorDois =' . $professorLogin['idProfessor'];
+
+                    
+
+                    echo '  <a href="#" class="list-group-item active">' . $dado['tituloTcc'] . $dado['nomeAluno'] . $dado['nomeProfessor'] . '</a>
+  <a href="#" class="list-group-item">' . $dado['tituloTcc'] . $dado['nomeAluno'] . $dado['nomeProfessor'] . '</a>
+  <a href="#" class="list-group-item">' . $dado['tituloTcc'] . $dado['nomeAluno'] . $dado['nomeProfessor'] . '</a>';
                     ?>
                 </ul>
             </div>
