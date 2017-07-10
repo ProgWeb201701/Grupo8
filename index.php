@@ -44,6 +44,7 @@ and open the template in the editor.
                                                 <select id="user" name="usuario" class="form-control">
                                                     <option value="1">aluno</option>
                                                     <option value="2">professor</option>
+                                                    <option value="3">coordenador</option>
                                                 </select>
                                             </div>
 
