@@ -17,11 +17,11 @@ and open the template in the editor.
 
         $logado = $_SESSION['login'];
         $senha = $_SESSION['senha'];
-        $alunoLogin = $_SESSION['alunoTabela'];
+        $coordenadorLogin = $_SESSION['coordenadorTabela'];
         $conexao = new ConexaoBanco();
-        $query = "SELECT * FROM aluno WHERE idAluno = " . $alunoLogin['idAluno'];
+        $query = "SELECT * FROM coordenador WHERE idCoordenador = " . $coordenadorLogin['idCoordenador'];
         $result = $conexao->executeQuery($query);
-        $alunoTabela = mysqli_fetch_assoc($result);
+        $coordenadorTabela = mysqli_fetch_assoc($result);
         ?>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,12 +34,16 @@ and open the template in the editor.
         <div>
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">
-                    <div class="navbar-header col-md-11">
+                    <div class="navbar-header col-md-9">
                         <a href="inicioAluno.php" class="navbar-brand" title="Página inicial">
                             Gerenciador de TCC
                         </a>
                     </div>
-
+                    <div class="navbar-header col-md-2">
+                        <a href="vincularTcc.php" class="navbar-brand" title="Página inicial">
+                            Vincular TCC
+                        </a>
+                    </div>
                     <div class="navbar-header col-md-1">
                         <a href="../index.php" class="navbar-brand" title="Página inicial">
                             Sair
@@ -47,5 +51,6 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+        </div>
     </body>
 </html>

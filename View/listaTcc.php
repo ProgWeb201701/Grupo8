@@ -68,12 +68,13 @@ and open the template in the editor.
                         $query2 = 'SELECT professor.nomeProfessor FROM professor WHERE professor.idProfessor =' . $obj->idOrientador;
                         $orientador = $conexao->executeQuery($query2);
                         while ($alun = mysqli_fetch_object($aluno)) {
-                            while ($prof =  mysqli_fetch_object($orientador)) {
+                            while ($prof = mysqli_fetch_object($orientador)) {
                                 echo ' <div>
                             <tr>
-                                <td>' . $obj->tituloTcc . $alun->nomeAluno . $prof->nomeProfessor. '</td>
+                                <td>' . $obj->tituloTcc . '</td><td>' . $alun->nomeAluno . '</td></td>' .
+                                $prof->nomeProfessor . '</td>
                                 <td>
-                                    <a href="Avaliar.php">
+                                    <a href="listarTcc.php">
                                         <button class="btn btn-info">
                                             Avaliar
                                         </button>
