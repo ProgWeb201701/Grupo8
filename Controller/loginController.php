@@ -11,11 +11,10 @@ $usuario = $_POST['usuario'];
 $logar = new loginController();
 $logar->login($login, $senha, $usuario);
 
-class loginController
-{
+class loginController {
 
-    public function login($login, $senha, $usuario)
-    {
+    public function login($login, $senha, $usuario) {
+       
         $conexao = new ConexaoBanco();
 
         if ($usuario == 1) {
@@ -52,4 +51,5 @@ class loginController
     }
 
 }
+
 ?>

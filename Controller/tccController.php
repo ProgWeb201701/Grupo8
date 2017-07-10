@@ -38,9 +38,8 @@ if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
     $alunoTabela = mysqli_fetch_assoc($result);
     $id = $alunoLogin['idAluno'];
 
-    $query = "INSERT INTO `tcc`(`idTcc`, `idOrientado`, `idOrientador`, "
-            . "`idAvaliadorUm`, `idAvaliadorDois`, `tipo`, `nome`, `tamanho`, `conteudo`) "
-            . "VALUES ('',$id,'','','',$fileName', '$fileSize', '$fileType', '$content')";
+    $query = "INSERT INTO `tcc`(  `nome`, `tamanho`,`tipo`, `conteudo`) "
+            . "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
 
     $resulta = $conexao->executeQuery($query);
     if ($resulta) {
