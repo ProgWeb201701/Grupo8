@@ -10,7 +10,7 @@ if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == tru
 }
 $alunoLogin = $_SESSION['alunoTabela'];
 $conexao = new ConexaoBanco();
-$query = "SELECT * FROM aluno WHERE idProfessor=" . $alunoLogin['idAluno'];
+$query = "SELECT * FROM aluno WHERE idAluno=" . $alunoLogin['idAluno'];
 $result = $conexao->executeQuery($query);
 $alunoTabela = mysqli_fetch_assoc($result);
 $id = $alunoLogin['idAluno'];
@@ -18,7 +18,7 @@ $id = $alunoLogin['idAluno'];
 $nomeAluno = $_POST['nome'];
 $senhaAluno = $_POST['senha'];
 
-$query = "update aluno set nomeAluno='$nomeAluno' senhaAluno='$senhaAluno' where idAluno= $id";
+$query = "update aluno set nomeAluno= '$nomeAluno', senhaAluno='$senhaAluno' where idAluno= $id";
 $resulta = $conexao->executeQuery($query);
 if (resulta) {
     echo '<script>alert("Dados Atualizados!");</script>';
