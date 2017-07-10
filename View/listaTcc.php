@@ -75,7 +75,7 @@ and open the template in the editor.
                                 <td>
                                     <a href="Avaliar.php">
                                         <button class="btn btn-info">
-                                            Mais Detalhes
+                                            Avaliar
                                         </button>
                                     </a>
                                 </td>

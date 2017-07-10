@@ -43,8 +43,10 @@ if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
 
     $resulta = $conexao->executeQuery($query);
     if ($resulta) {
-        echo 'File uploaded';
+        header('Location:../View/inicioAluno.php');
     } else {
-        echo 'File not uploaded';
+        header('Location:../View/cadastrarMonografia.php');
     }
+} else {
+    header('Location:../View/cadastrarMonografia.php');
 }

@@ -58,7 +58,7 @@ and open the template in the editor.
                     <div class="col-lg-6">
                         <input type="file" class="form-control" id="arquivo" name="userfile" placeholder="Arquivo">
                         <br>
-                        <p>Nome: <input type="textfield" name="nometcc" id="nometcc"></p>
+                        <p>Titulo: <input type="textfield" placeholder="Titulo monografia" name="nometcc" id="nometcc"></p>
                         <br>
                         <input class="btn btn-primary" name="upload" type="submit" class="box" id="upload" value=" Upload ">
                         <button type="reset" class="btn btn-default">Cancelar</button>
