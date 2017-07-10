@@ -9,7 +9,7 @@ if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == tru
     header('Location:../index.php');
 }
 $conexao = new ConexaoBanco();
-$query = "SELECT * FROM professor WHERE idProfessor = " . $professorLogin['idProfessor'];
+$query = "SELECT * FROM professor WHERE idProfessor=" . $professorLogin['idProfessor'];
 $result = $conexao->executeQuery($query);
 $alunoTabela = mysqli_fetch_assoc($result);
 $id = $professorLogin['idProfessor'];
