@@ -14,22 +14,14 @@ class ConexaoBanco {
     protected $result;
 
     function connect() {
-        $this->link = mysql_connect($this->host, $this->usuario, $this->senha);
-        if (!$this->link) {
-            echo "Falha na conexão com o Banco de Dados!<br />";
-            echo "Erro: " . mysql_error();
-            die();
-        } else if (!mysql_select_db($this->banco, $this->link)) {
-            echo "O Bando de Dados solicitado não pode ser aberto!<br />";
-            echo "Erro: " . mysql_error();
-            die();
-        }
+        return $this->link = mysqli_connect($this->host, $this->usuario, $this->senha, $this->banco);
     }
 
     function executeQuery($query) {
-        $this->connect();
+
         $this->query = $query;
-        if ($this->result = mysql_query($this->query)) {
+        $this->result = mysqli_query($this->connect(), $query);
+        if ($this->result) {
             $this->disconnect();
             return $this->result;
         } else {
@@ -42,7 +34,7 @@ class ConexaoBanco {
     }
 
     function disconnect() {
-        return mysql_close($this->link);
+        return mysqli_close($this->link);
     }
 
 }
