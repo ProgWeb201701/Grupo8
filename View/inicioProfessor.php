@@ -31,7 +31,7 @@ and open the template in the editor.
         <link href="css/css.css" rel="stylesheet">
         <title></title>
     </head>
-    <body background="https://i.imgflip.com/693xy.jpg">
+    <body>
         <div>
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">
