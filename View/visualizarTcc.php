@@ -45,8 +45,8 @@ and open the template in the editor.
                             Avaliar Trabalhos
                         </a>
                     </div>
-                    
-                     <div class="navbar-header col-md-3">
+
+                    <div class="navbar-header col-md-3">
                         <a href="visualizarTcc.php" class="navbar-brand" title="Visualizar Trabalhos">
                             Visualizar Trabalhos
                         </a>
@@ -63,44 +63,25 @@ and open the template in the editor.
             <?php
             $prof = $conexao->lerLinha('SELECT * FROM coordenador WHERE idProfessor =' . $professorTabela['idProfessor']);
 
-            //Orientador
-
             $tccs = $conexao->lerTabela('tcc');
             if ($tccs) {
                 while ($obj = mysqli_fetch_object($tccs)) {
-                    if ($professorTabela['idProfessor'] === $obj->idAvaliadorUm ||
-                            $professorTabela['idProfessor'] === $obj->idAvaliadorDois) {
-                        $query = 'SELECT aluno.nomeAluno FROM aluno WHERE aluno.idAluno =' . $obj->idOrientado;
-                        $aluno = $conexao->executeQuery($query);
-                        $query2 = 'SELECT professor.nomeProfessor FROM professor WHERE professor.idProfessor =' . $obj->idOrientador;
-                        $orientador = $conexao->executeQuery($query2);
-                        while ($alun = mysqli_fetch_object($aluno)) {
-                            while ($prof = mysqli_fetch_object($orientador)) {
 
-                                echo '             <form id="login-form" action="../Controller/AvaliarTccController.php" method="POST" role="form" style="display: block;">
+                    $query = 'SELECT aluno.nomeAluno FROM aluno WHERE aluno.idAluno =' . $obj->idOrientado;
+                    $aluno = $conexao->executeQuery($query);
+                    $query2 = 'SELECT professor.nomeProfessor FROM professor WHERE professor.idProfessor =' . $obj->idOrientador;
+                    $orientador = $conexao->executeQuery($query2);
+                    while ($alun = mysqli_fetch_object($aluno)) {
+                        while ($prof = mysqli_fetch_object($orientador)) {
+                            echo ' <div class="list-group">
+    <a href="#" class="list-group-item active">' . $obj->tituloTcc . '</a>
+            <a href="#" class="list-group-item">' . $alun->nomeAluno . '</a>
+                <a href="#" class="list-group-item">' . $prof->nomeProfessor . '</a>
 
-                                        <div>
-                            <tr>
-                                <td>|' . $obj->tituloTcc . '|   </td><td>/' . $alun->nomeAluno . '|      </td></td>' .
-                                $prof->nomeProfessor . '|         </td>
-                                    <input type="hidden" name="idtcc" value="'.$obj->idTcc.'" />
-                                     
-                                <input type= "textfield" size="2%" name= "nota" value=""></input>
-                                <td>
-                                    <a href="listarTcc.php">
-                                       <input type="submit" name="cadastrar" id="cadastrar"  class="btn btn-primary" value="Avaliar">
-                                    </a>
-                                </td>
-                            </tr>
-                            <br><br>
-                            </div>
-                            </form>';
-                            }
+  </div>';
                         }
                     }
                 }
-            
-                mysqli_free_result($tccs);
             }
             ?>
         </div>

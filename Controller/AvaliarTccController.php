@@ -11,12 +11,12 @@ if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == tru
 }
 $nota = $_POST['nota'];
 $idtcc = $_POST['idtcc'];
-$query = "nota = " . $nota . " where idTcc=" . $idtcc;
+$query = "update tcc set nota =" . $nota . " where idTcc=" . $idtcc;
 $conexao = new ConexaoBanco();
 $resulta = $conexao->executeQuery($query);
 if ($resulta) {
-    header('Location:../View/inicioCoordenador.php');
+    header('Location:../View/listaTcc.php');
 } else {
     echo'<script>alert("Erro ao vincular o tcc");</script>';
-    header('Location:../View/vincularTcc.php');
+    header('Location:../View/listaTcc.php');
 }
