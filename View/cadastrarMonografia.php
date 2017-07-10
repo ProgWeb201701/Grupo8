@@ -34,7 +34,7 @@ and open the template in the editor.
         <div>
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">
-                    <div class="navbar-header col-md-7">
+                    <div class="navbar-header col-md-5">
                         <a href="inicioAluno.php" class="navbar-brand" title="Página inicial">
                             Gerenciador de TCC
                         </a>
@@ -42,6 +42,11 @@ and open the template in the editor.
                     <div class="navbar-header col-md-4">
                         <a href="cadastrarMonografia.php" class="navbar-brand" title="Página inicial">
                             Cadastrar monografia
+                        </a>
+                    </div>
+                    <div class="navbar-header col-md-2">
+                        <a href="editarAluno.php" class="navbar-brand" title="Página inicial">
+                            Editar Aluno
                         </a>
                     </div>
                     <div class="navbar-header col-md-1">

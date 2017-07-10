@@ -34,7 +34,7 @@ and open the template in the editor.
         <div>
             <div class="navbar navbar-default" role="navigation">
                 <div class="container">
-                    <div class="navbar-header col-md-7">
+                    <div class="navbar-header col-md-5">
                         <a href="inicioAluno.php" class="navbar-brand" title="Página inicial">
                             Gerenciador de TCC
                         </a>
@@ -44,6 +44,11 @@ and open the template in the editor.
                             Cadastrar monografia
                         </a>
                     </div>
+                    <div class="navbar-header col-md-2">
+                        <a href="editarAluno.php" class="navbar-brand" title="Página inicial">
+                            Editar Aluno
+                        </a>
+                    </div>
                     <div class="navbar-header col-md-1">
                         <a href="../index.php" class="navbar-brand" title="Página inicial">
                             Sair
@@ -51,7 +56,7 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-            <form class="form-horizontal" method="POST" action="../Controller/editarProfessorController.php">
+            <form class="form-horizontal" method="POST" action="../Controller/editarAlunoController.php">
                 <fieldset>
                     <!-- Text input-->
                     <div class="form-group">
