@@ -14,7 +14,7 @@ and open the template in the editor.
             unset($_SESSION['senha']);
             header('Location:../index.php');
         }
-
+        
         $logado = $_SESSION['login'];
         $senha = $_SESSION['senha'];
         $alunoLogin = $_SESSION['alunoTabela'];

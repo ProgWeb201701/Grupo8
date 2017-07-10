@@ -6,12 +6,18 @@ if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == tru
     unset($_SESSION['login']);
     unset($_SESSION['senha']);
     header('Location:../index.php');
+} else {
+    
 }
-$logado = $_SESSION['login'];
-$senha = $_SESSION['senha'];
-$alunoLogin = $_SESSION['alunoTabela'];
-$conexao = new ConexaoBanco();
-$query = "SELECT * FROM aluno WHERE idAluno = " . $alunoLogin['idAluno'];
-$result = $conexao->executeQuery($query);
-$alunoTabela = mysqli_fetch_assoc($result);
-$id = $alunoLogin['idAluno'];
+$idtcc = $_POST['idtcc'];
+$idorientador = $_POST['idorientador'];
+$idavaliador = $_POST['idavaliador'];
+$idavaliador2 = $_POST['idavaliador2'];
+$query = "update tcc set idOrientador=" . $idorientador . ", idAvaliadorUm=" . $idavaliador . ",idAvaliadorDois=" . $idavaliador2 . " where idTcc=" . $idtcc;
+$conexao = new $ConexaoBanco();
+$resulta = $conexao->executeQuery($query);
+if ($resulta) {
+    echo'editou com sucesso';
+} else {
+    echo'quero ver tu escorregar no meu peru > quero ver tu escorregar o bumbum';
+}
