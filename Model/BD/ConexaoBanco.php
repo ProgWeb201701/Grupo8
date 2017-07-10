@@ -25,9 +25,9 @@ class ConexaoBanco {
             $this->disconnect();
             return $this->result;
         } else {
-            echo "Ocorreu um erro na execução da SQL";
-            echo "Erro :" . mysql_error();
-            echo "SQL: " . $query;
+            echo "Ocorreu um erro na execução da SQL\n";
+            echo "Erro :\n" . mysql_error();
+            echo "SQL: \n" . $query;
             die();
             disconnect();
         }
