@@ -12,15 +12,14 @@ $professorLogin = $_SESSION['professorTabela'];
 $conexao = new ConexaoBanco();
 $query = "SELECT * FROM professor WHERE idProfessor=" . $professorLogin['idProfessor'];
 $result = $conexao->executeQuery($query);
-$alunoTabela = mysqli_fetch_assoc($result);
+$professorTabela = mysqli_fetch_assoc($result);
 $id = $professorLogin['idProfessor'];
 
 $nomeProfessora = $_POST['nome'];
 $senhaProfessora = $_POST['senha'];
-var_dump($senhaProfessora, $nomeProfessora);die();
 
-$query = 'UPDATE professor SET professor.nomeProfessor = '.$nomeProfessora.', professor.senhaProfessor= '.$senhaProfessora.' WHERE professor.idProfessor ='. $id;
-$resulta = $conexao->executeQuery($query);
+$querya = "UPDATE professor SET nomeProfessor = '$nomeProfessora', senhaProfessor = '$senhaProfessor' WHERE idProfessor = $id";
+$resulta = $conexao->executeQuery($querya);
 if (resulta) {
     echo '<script>alert("Dados Atualizados!");</script>';
     header('Location:../View/editarProfessor.php');
