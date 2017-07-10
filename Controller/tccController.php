@@ -34,7 +34,7 @@ if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
     $alunoLogin = $_SESSION['alunoTabela'];
     $conexao = new ConexaoBanco();
     $query = "SELECT * FROM aluno WHERE idAluno = " . $alunoLogin['idAluno'];
-    $result = $conexao->requisicoesBanco($query);
+    $result = $conexao->executeQuery($query);
     $alunoTabela = mysqli_fetch_assoc($result);
     $id = $alunoLogin['idAluno'];
 
@@ -42,8 +42,7 @@ if (isset($_POST['upload']) && $_FILES['userfile']['size'] > 0) {
             . "`idAvaliadorUm`, `idAvaliadorDois`, `tipo`, `nome`, `tamanho`, `conteudo`) "
             . "VALUES ('',$id,'','','',$fileName', '$fileSize', '$fileType', '$content')";
 
-    $resulta = mysqli_query($conexao, $query);
-    $conexao->Fechar();
+    $resulta = $conexao->executeQuery($query);
     if ($resulta) {
         echo 'File uploaded';
     } else {
