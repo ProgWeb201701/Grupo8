@@ -9,7 +9,6 @@ and open the template in the editor.
         <?php
         session_start();
         include '../Model/BD/ConexaoBanco.php';
-        include '../Repository/RepositoryTcc.php';
         if ((!isset($_SESSION['login']) == true) and ( !isset($_SESSION['senha']) == true)) {
             unset($_SESSION['login']);
             unset($_SESSION['senha']);
@@ -51,21 +50,17 @@ and open the template in the editor.
             <div class="list-group">
                 <ul class="list-group">
                     <?php
-                    $query = 'SELECT COUNT(*) FROM tcc';
-                    $result = $conexao->requisicoesBanco($query);
-                    $contador = 0;
-                    $numero = $result;
-                    $query = 'select * from tcc';
-                    $result = $conexao->requisicoesBanco($query);
-                    $RepoTCC = new Repositorytcc();
-                    $tcc = $RepoTCC->create($result);
-//                    $query = 'SELECT professor.nomeProfessor FROM professor INNER JOIN coordenador
-//                    ON professor.idProfessor = coordenador.idCoordenador';
-//                    $result = $conexao->requisicoesBanco($query);
+                    $conec = new ConexaoBanco();
+                    $query = 'SELECT tcc.tituloTcc, aluno.nomeAluno, professor.nomeProfessor FROM tcc
+INNER JOIN professor
+ON professor.idProfessor = tcc.idOrientador
+INNER JOIN aluno
+ON aluno.idAluno = tcc.idOrientando';
+                    $dado = $conec->select($query);
 
-                    while ($contador < $numero) {
-                        echo '<li class="list-group-item"> ' . $tcc->getTituloTcc() . '  </li>';
-                    }
+                    echo '  <a href="#" class="list-group-item active">'.$dado['tituloTcc']. $dado['nomeAluno'].$dado['nomeProfessor'].'</a>
+  <a href="#" class="list-group-item">'.$dado['tituloTcc']. $dado['nomeAluno'].$dado['nomeProfessor'].'</a>
+  <a href="#" class="list-group-item">'.$dado['tituloTcc']. $dado['nomeAluno'].$dado['nomeProfessor'].'</a>';
                     ?>
                 </ul>
             </div>
