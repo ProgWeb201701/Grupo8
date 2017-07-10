@@ -63,7 +63,7 @@ and open the template in the editor.
                 while ($obj = mysqli_fetch_object($tccs)) {
                     if ($professorTabela['idProfessor'] === $obj->idAvaliadorUm ||
                             $professorTabela['idProfessor'] === $obj->idAvaliadorDois) {
-                        $query = 'SELECT aluno.nomeAluno FROM aluno WHERE aluno.idAluno =' . $obj->idOrientando;
+                        $query = 'SELECT aluno.nomeAluno FROM aluno WHERE aluno.idAluno =' . $obj->idOrientado;
                         $aluno = $conexao->executeQuery($query);
                         $query2 = 'SELECT professor.nomeProfessor FROM professor WHERE professor.idProfessor =' . $obj->idOrientador;
                         $orientador = $conexao->executeQuery($query2);
