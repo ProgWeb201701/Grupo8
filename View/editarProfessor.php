@@ -75,7 +75,6 @@ and open the template in the editor.
                         <label class="col-md-4 control-label" for="idNome">Nome</label>  
                         <div class="col-md-5">
                             <input id="idNome" name="nome" type="text" placeholder="Nome do usuário" class="form-control input-md" required="" value=<?php echo $professorTabela['nomeProfessor']?>>
-                            <input id="idNome" name="nome" type="text" placeholder="Nome do usuário" class="form-control input-md" required="" value=<?php $professor->nomeProfessor ?>>
                         </div>
                     </div>
                     <!-- Password input-->
@@ -83,7 +82,6 @@ and open the template in the editor.
                         <label class="col-md-4 control-label" for="idSenha">Senha</label>
                         <div class="col-md-5">
                             <input id="idSenha" name="senha" type="password" placeholder="Digite a senha" class="form-control input-md" required="" value=<?php echo $professorTabela['senhaProfessor']?>>
-                            <input id="idSenha" name="senha" type="password" placeholder="Digite a senha" class="form-control input-md" required="" value=<?php $professor->senhaProfessor ?>>
 
                         </div>
                     </div>

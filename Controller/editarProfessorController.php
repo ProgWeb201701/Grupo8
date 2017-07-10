@@ -17,8 +17,9 @@ $id = $professorLogin['idProfessor'];
 
 $nomeProfessora = $_POST['nome'];
 $senhaProfessora = $_POST['senha'];
+var_dump($senhaProfessora, $nomeProfessora);die();
 
-$query = "UPDATE professor SET nomeProfessor=" . $nomeProfessora . ", senhaProfessor=" . $senhaProfessora;
+$query = 'UPDATE professor SET professor.nomeProfessor = '.$nomeProfessora.', professor.senhaProfessor= '.$senhaProfessora.' WHERE professor.idProfessor ='. $id;
 $resulta = $conexao->executeQuery($query);
 if (resulta) {
     echo '<script>alert("Dados Atualizados!");</script>';
